@@ -1,0 +1,95 @@
+# ==========================================
+# Apna College Python Module: Data Structures & Functions
+# ==========================================
+
+# ------------------------------------------
+# 1. LISTS (Mutable sequences)
+# ------------------------------------------
+marks = [87, 64, 33, 95, 76]
+student = ["Karan", 85, "Bangalore"]
+
+# Modifying elements (Lists are mutable)
+student[0] = "Arjun"
+
+# Common List Methods
+marks.append(100)           # Adds an element to the end
+marks.sort()                # Sorts in ascending order
+marks.sort(reverse=True)    # Sorts in descending order
+marks.reverse()             # Reverses the list
+marks.insert(1, 99)         # Inserts element 99 at index 1
+marks.pop(2)                # Removes element at index 2
+
+print("Processed Marks List:", marks)
+
+
+# ------------------------------------------
+# 2. TUPLES (Immutable sequences)
+# ------------------------------------------
+tup = (87, 64, 33, 95, 76, 33)
+
+# Common Tuple Methods
+index_33 = tup.index(33)    # Returns first index of value 33
+count_33 = tup.count(33)    # Counts total occurrences of value 33
+
+print("Tuple Example:", tup)
+print("Index of 33:", index_33)
+print("Count of 33:", count_33)
+
+
+# ------------------------------------------
+# 3. DICTIONARIES (Key-Value pairs)
+# ------------------------------------------
+info = {
+    "name": "Karan",
+    "subjects": ["Python", "DSA", "SQL"],
+    "topics": ("Lists", "Tuples", "Dicts"),
+    "age": 19,
+    "is_adult": True,
+    "marks": 92.5
+}
+
+# Modifying and Adding Key-Value pairs
+info["name"] = "Rahul"
+info["city"] = "Bangalore"
+
+# Common Dictionary Methods
+keys = list(info.keys())    # Returns all keys
+values = list(info.values())# Returns all values
+items = list(info.items())  # Returns all (key, val) pairs as tuples
+
+# Safe retrieval using .get()
+age_val = info.get("age")   # Returns value or None if key doesn't exist
+
+print("Dictionary Keys:", keys)
+print("User City:", info["city"])
+
+
+# ------------------------------------------
+# 4. FUNCTIONS & RECURSION
+# ------------------------------------------
+# Function to calculate average of 3 numbers
+def calc_avg(a, b, c):
+    sum_val = a + b + c
+    avg = sum_val / 3
+    return avg
+
+# Function to print elements of a list
+def print_list(list_input):
+    for item in list_input:
+        print(item, end=" ")
+    print()
+
+# Function to find factorial (Recursion)
+def calc_factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    return n * calc_factorial(n - 1)
+
+# Function calls
+avg_res = calc_avg(10, 20, 30)
+fact_res = calc_factorial(5)
+
+print("Calculated Average:", avg_res)
+print("Factorial of 5:", fact_res)
+print("List printing via function:")
+print_list(marks)
