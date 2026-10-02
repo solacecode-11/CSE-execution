@@ -1,0 +1,28 @@
+
+class Student:
+    def __init__(self, name, cgpa):
+        self.name = name          # Public attribute
+        self.__cgpa = cgpa        # Private attribute (Encapsulation)
+
+    # Public getter method to safely access private data
+    def get_cgpa(self):
+        return self.__cgpa
+
+    # Public setter method to update private data safely
+    def set_cgpa(self, new_cgpa):
+        if 0.0 <= new_cgpa <= 10.0:
+            self.__cgpa = new_cgpa
+        else:
+            print("Invalid CGPA value")
+
+# --- Testing OOP Principles ---
+# 1. Object Creation
+s1 = Student("Engineering Student", 9.2)
+
+# 2. Accessing Public vs Private Data
+print(f"Student Name: {s1.name}")
+print(f"Current CGPA: {s1.get_cgpa()}")
+
+# 3. Encapsulation Test (Updating private property via method)
+s1.set_cgpa(9.5)
+print(f"Updated CGPA: {s1.get_cgpa()}")
