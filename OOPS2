@@ -1,0 +1,25 @@
+# Create an Account class simulating real bank/ledger transactions
+class Account:
+    def __init__(self, owner, balance):
+        self.owner = owner
+        self.__balance = balance  # Private attribute (Encapsulation)
+
+    def debit(self, amount):
+        if amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Debited ₹{amount}. New balance: ₹{self.__balance}")
+        else:
+            print("Insufficient funds!")
+
+    def credit(self, amount):
+        self.__balance += amount
+        print(f"Credited ₹{amount}. New balance: ₹{self.__balance}")
+
+    def get_balance(self):
+        return self.__balance
+
+# Instantiate object and run test
+acc1 = Account("Rahul", 1000)
+acc1.debit(200)
+acc1.credit(500)
+print("Final Balance:", acc1.get_balance())
